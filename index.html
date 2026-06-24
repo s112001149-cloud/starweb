@@ -2,122 +2,172 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小星星作品集</title>
-
-   /* 讓作品卡片升級：加入漸層邊框與滑鼠懸停浮起特效 */
-.card {
-    background: rgba(255, 255, 255, 0.85) !important; /* 讓卡片帶有一點半透明玻璃質感 */
-    backdrop-filter: blur(5px); /* 模糊背景的星星，超有質感 */
-    border: 2px solid #4b0082;
-    border-radius: 20px !important;
-    padding: 30px !important;
-    margin: 30px auto !important;
-    transition: all 0.4s ease; /* 讓動作變平滑 */
-    box-shadow: 0 8px 20px rgba(75, 0, 130, 0.15);
-}
-
-/* 🌟 當滑鼠移到卡片上時的炫酷視覺效果 */
-.card:hover {
-    transform: translateY(-8px); /* 卡片向上漂浮 */
-    box-shadow: 0 15px 30px rgba(143, 137, 189, 0.4); /* 陰影變大且變紫色發光 */
-    border-color: #ba55d3; /* 邊框變成亮紫色 */
-}
-
-/* 強化大標題外觀 */
-h1 {
-    font-size: 2.5rem;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-}
-
-/* 讓作品圖片加入圓角與陰影 */
-.my-photo {
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-.my-photo:hover {
-    transform: scale(1.02); /* 滑鼠移到圖片上時會微微放大 */
-}
-
-/* 讓色票圓圈更有立體感 */
-.card div div[style*="width: 50px"] {
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-.card div div[style*="width: 50px"]:hover {
-    transform: scale(1.2) rotate(5deg); /* 滑鼠移到色票上，色票放大並微微旋轉 */
-}
-
-        /* --- 星星動起來 --- */
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            cursor: pointer;
-            animation: flash 2s infinite alternate;
+    <style>
+        /* 原本的夜空基礎設定 */
+        body {
+            background-color: #120d26;
+            color: #333;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
-        @keyframes flash {
-            from { opacity: 0.2; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1.2); }
-        }
-
-        /* 星星爆炸 */
-        .boom {
-            animation: explode 0.3s forwards;
-        }
-        @keyframes explode {
-            to { transform: scale(5); opacity: 0; }
-        }
-
-        /* --- 大月亮 --- */
-        .moon {
-            position: fixed;
-            top: 50px;
-            right: 50px;
-            width: 80px;
-            height: 80px;
-            background: #fefcd7;
-            border-radius: 50%;
-            box-shadow: 0 0 50px white;
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        /* --- 放作品的白色小卡片 (這樣紫色字才看得清楚) --- */
+        /* 🌟 幫你放入的星空漂浮感進階視覺特效 */
         .card {
-            background: rgba(255, 255, 255, 0.8); /* 像磨砂玻璃一樣 */
-            margin: 50px auto;
-            padding: 30px;
-            width: 80%;
+            background: rgba(255, 255, 255, 0.85) !important;
+            backdrop-filter: blur(5px);
+            border: 2px solid #4b0082;
+            border-radius: 20px !important;
+            padding: 30px !important;
+            margin: 30px auto !important;
             max-width: 600px;
-            border-radius: 30px;
+            width: 80%;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(75, 0, 130, 0.15);
             text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            border: 5px solid #4b0082; /* 深紫色的邊框 */
         }
 
+        /* 當滑鼠移到卡片上時的動態浮起與紫色發光效果 */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(143, 137, 189, 0.4);
+            border-color: #ba55d3;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        h2, h3, h4 {
+            color: #4b0082;
+        }
+
+        /* 作品圖片圓角與微放大陰影 */
         .my-photo {
             width: 100%;
-            height: 250px;
-            background-color: #eee;
-            border-radius: 20px;
+            height: auto;
+            max-height: 350px;
             object-fit: cover;
-            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .my-photo:hover {
+            transform: scale(1.02);
         }
 
-        h1, h2, h3, p {
-            color: var(--font-purple); /* 確定字一定是深紫色 */
+        /* 色票圓圈滑鼠移過去會變大並旋轉 */
+        .color-ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            transition: transform 0.3s ease;
+            cursor: pointer;
         }
-
-        .contact-box {
-            margin-bottom: 100px;
+        .color-ball:hover {
+            transform: scale(1.2) rotate(5deg);
         }
     </style>
 </head>
 <body>
+
+    <div class="card" style="text-align: left;">
+        <h1 style="text-align: center;">我是 塗仙元 🎈</h1>
+        <p style="font-size: 18px; font-weight: bold; margin-bottom: 20px; text-align: center; color: #4b0082;">用色彩定義世界 ‧ 用幾何解構生活</p>
+        
+        <p style="line-height: 1.8; margin-bottom: 20px;">
+            你好，我是仙元。這是一份專注於視覺傳達與色彩計劃的個人作品集。我熱衷於挖掘色彩之間的和諧律動，並嘗試在規律的幾何結構中尋找設計的無限可能。在這個作品集中，我記錄了自己對印花紋樣、色彩搭配以及風格人像視覺的實驗與嘗試。
+        </p>
+
+        <div style="background: rgba(255,255,255,0.6); padding: 15px; border-radius: 15px; margin-bottom: 20px;">
+            <p style="margin: 0 0 5px 0; font-weight: bold; color: #333;">💡 核心專長與學習焦點：</p>
+            <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+                <li><b>色彩計劃運用</b>：擅長從生活與攝影作品中提煉色彩規格（HEX），規劃具氛圍感的作品配色。</li>
+                <li><b>幾何紋樣設計</b>：運用二方/四方連續圖騰概念，將自然元素（如玫瑰）解構成現代感印花。</li>
+                <li><b>數位視覺實驗</b>：目前正積極累積平面視覺、包裝美學及數位網頁前端架站的實務經驗。</li>
+            </ul>
+        </div>
+
+        <p style="line-height: 1.8; margin: 0; text-align: center;">
+            對我而言，設計不只是漂亮的畫面，更是將生活中的靈感轉化為視覺符號的有趣過程。
+        </p>
+    </div>
+
+    <div style="text-align: center; margin: 40px 0 20px 0;">
+        <h2 style="background: white; display: inline-block; padding: 10px 30px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">我的寶藏作品集</h2>
+    </div>
+
+    <div class="card">
+        <img class="my-photo" src="pic1.jpg" alt="作品照片">
+        <h3>◆ 專案：紫色色彩模特</h3>
+        <p style="text-align: left;"><b>專案簡介：</b>這是我想當上模特，利用紫色的主題去打造我們的造型。</p>
+        <p style="text-align: left;"><b>設計方式：</b>只使用紫色去拍攝。</p>
+        
+        <hr style="border: 1px dashed #4b0082; margin: 20px 0;">
+        <h4>🎨 色彩計劃與色彩規格 (Color Scheme)</h4>
+        <p style="font-size: 14px; text-align: left;">本作品採用神祕優雅的紫色調，融合柔和的暖膚色，呈現高貴、深邃的視覺意象：</p>
+        
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #a389bd;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">優雅紫<br><b>#a389bd</b></span>
+            </div>
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #dcb097;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">暖膚色<br><b>#dcb097</b></span>
+            </div>
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #3d3131;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">深可可<br><b>#3d3131</b></span>
+            </div>
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #ffffff; border: 2px solid #ddd;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">純潔白<br><b>#ffffff</b></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <img class="my-photo" src="rose.jpg" alt="作品照片">
+        <h3>◆ 專案：花磚明信片</h3>
+        <p style="text-align: left;"><b>專案簡介：</b>本專案以現代幾何圖形為骨架，融合古典玫瑰花卉元素，創作出富有韻律感的四方連續印花設計。透過繁複的圖案堆疊與色彩搭配，展現出具古典美感與現代感並存的視覺藝術。</p>
+        <p style="text-align: left;"><b>設計方式：</b>利用幾何圖形與輔助圓形進行精密編排，將玫瑰花卉解構並規律地重複排列，達到視覺上的和諧與延伸感。</p>
+        
+        <hr style="border: 1px dashed #4b0082; margin: 20px 0;">
+        <h4>🎨 色彩計劃與色彩規格 (Color Scheme)</h4>
+        <p style="font-size: 14px; text-align: left;">本作品採用復古優雅的宮廷風配色，藉由和諧的冷暖色調交織，呈現極具韻律感的視覺氛圍：</p>
+        
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 15px;">
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #cb8485;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">古粉紅<br><b>#cb8485</b></span>
+            </div>
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #c9984e;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">古典金<br><b>#c9984e</b></span>
+            </div>
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #8fa2b1;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">復古藍<br><b>#8fa2b1</b></span>
+            </div>
+            <div style="text-align: center;">
+                <div class="color-ball" style="background-color: #2b2927;"></div>
+                <span style="font-size: 12px; display: block; margin-top: 5px;">深炭黑<br><b>#2b2927</b></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
 
     <!-- 這是大月亮 -->
     <div class="moon" onclick="changeSky()" title="點我變換夜空顏色"></div>
