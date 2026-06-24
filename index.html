@@ -165,61 +165,96 @@
         <h2 style="background: linear-gradient(135deg, #ffffff 0%, #f3ecf9 100%); display: inline-block; padding: 12px 35px; border-radius: 50px; box-shadow: 0 6px 15px rgba(0,0,0,0.3); color: #4b0082; font-size: 1.5rem; letter-spacing: 2px;">✨ 我的寶藏作品集 ✨</h2>
     </div>
 
+
+    <!-- 這是大月亮 -->
+    <div class="moon" onclick="changeSky()" title="點我變換夜空顏色"></div>
+
+    <!-- 星星會出現在這裡 -->
+    <div id="star-box"></div>
+
+    <!-- ★關於我的介紹 -->
     <div class="card">
-        <img class="my-photo" src="pic1.jpg" alt="作品照片">
-        <h3 style="font-size: 1.4rem; margin-top: 20px;">◆ 專案：紫色色彩模特</h3>
-        <p style="text-align: left; line-height: 1.6;"><b>專案簡介：</b>這是我想當上模特，利用紫色的主題去打造我們的造型。</p>
-        <p style="text-align: left; line-height: 1.6;"><b>設計方式：</b>只使用紫色去拍攝。</p>
-        
-        <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, #4b0082, transparent); margin: 25px 0;">
-        <h4>🎨 色彩計劃與色彩規格 (Color Scheme)</h4>
-        <p style="font-size: 14px; text-align: left; color: #555;">本作品採用神祕優雅的紫色調，融合柔和的暖膚色，呈現高貴、深邃的視覺意象：</p>
-        
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-            <div class="color-item" style="text-align: center;">
-                <div class="color-ball" style="background-color: #a389bd;"></div>
-                <span style="font-size: 12px; display: block; margin-top: 8px; font-weight: bold; color: #444;">優雅紫<br><span style="color:#777;">#a389bd</span></span>
-            </div>
-            <div class="color-item" style="text-align: center;">
-                <div class="color-ball" style="background-color: #dcb097;"></div>
-                <span style="font-size: 12px; display: block; margin-top: 8px; font-weight: bold; color: #444;">暖膚色<br><span style="color:#777;">#dcb097</span></span>
-            </div>
-            <div class="color-item" style="text-align: center;">
-                <div class="color-ball" style="background-color: #3d3131;"></div>
-                <span style="font-size: 12px; display: block; margin-top: 8px; font-weight: bold; color: #444;">深可可<br><span style="color:#777;">#3d3131</span></span>
-            </div>
-            <div class="color-item" style="text-align: center;">
-                <div class="color-ball" style="background-color: #ffffff; border: 3px solid #eee;"></div>
-                <span style="font-size: 12px; display: block; margin-top: 8px; font-weight: bold; color: #444;">純潔白<br><span style="color:#777;">#ffffff</span></span>
-            </div>
-        </div>
+        <h1>我是 [塗仙元] 🎈</h1>
+        <p>歡迎來到我的小星球！</p>
     </div>
 
-    <div class="card">
-        <img class="my-photo" src="rose.jpg" alt="作品照片">
-        <h3 style="font-size: 1.4rem; margin-top: 20px;">◆ 專案：花磚明信片</h3>
-        <p style="text-align: left; line-height: 1.6;"><b>專案簡介：</b>本專案以現代幾何圖形為骨架，融合古典玫瑰花卉元素，創作出富有韻律感的四方連續印花設計。透過繁複的圖案堆疊與色彩搭配，展現出具古典美感與現代感並存的視覺藝術。</p>
-        <p style="text-align: left; line-height: 1.6;"><b>設計方式：</b>利用幾何圖形與輔助圓形進行精密編排，將玫瑰花卉解構並規律地重複排列，達到視覺上的和諧與延伸感。</p>
-        
-        <hr style="border: 0; height: 1px; background: linear-gradient(to right, transparent, #4b0082, transparent); margin: 25px 0;">
-        <h4>🎨 色彩計劃與色彩規格 (Color Scheme)</h4>
-        <p style="font-size: 14px; text-align: left; color: #555;">本作品採用復古優雅的宮廷風配色，藉由和諧的冷暖色調交織，呈現極具韻律感的視覺氛圍：</p>
-        
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-            <div class="color-item" style="text-align: center;">
-                <div class="color-ball" style="background-color: #cb8485;"></div>
-                <span style="font-size: 12px; display: block; margin-top: 8px; font-weight: bold; color: #444;">古粉紅<br><span style="color:#777;">#cb8485</span></span>
-            </div>
-            <div class="color-item" style="text-align: center;">
-                <div class="color-ball" style="background-color: #c9984e;"></div>
-                <span style="font-size: 12px; display: block; margin-top: 8px; font-weight: bold; color: #444;">古典金<br><span style="color:#777;">#c9984e</span></span>
-            </div>
-            <div class="color-item" style="text-align: center;">
-                <div class="color-ball" style="background-color: #8fa2b1;"></div>
-                <span style="font-size: 12px; display: block; margin-top: 8px; font-weight: bold; color: #444;">復古藍<br><span style="color:#777;">#8fa2b1</span></span>
-            </div>
+    <!-- ★作品分類 -->
+    <div style="text-align: center;">
+        <h2 style="background: white; display: inline-block; padding: 10px 20px; border-radius: 50px;">我的寶藏作品集</h2>
+    </div>
 
-            <di    <!-- ★聯絡方式 -->
+    <!-- 作品 1 -->
+    <div class="card">
+        <img class="my-photo" src="pic1.jpg" alt="作品照片">
+        <h3>◆ 專案：紫色色彩模特</h3>
+        <p><b>專案簡介：</b>這是我第一次當上模特，利用紫色的主題去裝造我們的造型。</p>
+        <p><b>設計方式：</b>只使用紫色去拍攝。</p>
+    </div>
+ <hr style="border: 1px dashed #4b0082; margin: 20px 0;">
+
+    <h4>🎨 色彩計劃與色彩規格 (Color Scheme)</h4>
+    <p>本作品採用神祕優雅的紫色調，融合柔和的暖膚色，呈現高貴、深邃的視覺意象：</p>
+    
+    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #a389bd; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">優雅紫<br><b>#a389bd</b></span>
+        </div>
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #dcb097; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">暖膚色<br><b>#dcb097</b></span>
+        </div>
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #3d3131; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">深可可<br><b>#3d3131</b></span>
+        </div>
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #ffffff; border-radius: 50%; border: 2px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">純潔白<br><b>#ffffff</b></span>
+        </div>
+    </div>
+    <!-- 作品 2 -->
+    <div class="card">
+        <img class="my-photo" src="pic2.jpg" alt="作品照片">
+        <h3>◆ 專案：蛇年海報</h3>
+        <p><b>專案簡介：</b>蛇年豐收。</p>
+        <p><b>設計方式：</b>利用一條蛇複製成一個圖案，再把文字以及輔助圖形編排成多種海報。</p>
+    </div>
+
+<hr style="border: 1px dashed #4b0082; margin: 20px 0;">
+
+    <h4>🎨 色彩計劃與色彩規格 (Color Scheme)</h4>
+    <p>本作品採用溫暖、典雅的宮廷風配色，呈現浪漫與高貴的視覺氛圍：</p>
+    
+    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #d9a05b; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">金黃色<br><b>#d9a05b</b></span>
+        </div>
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #b35c5c; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">古典紅<br><b>#b35c5c</b></span>
+        </div>
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #8fa89b; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">莫蘭迪綠<br><b>#8fa89b</b></span>
+        </div>
+        <div style="text-align: center;">
+            <div style="width: 50px; height: 50px; background-color: #4a586e; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 0 auto;"></div>
+            <span style="font-size: 12px; display: block; margin-top: 5px;">普魯士藍<br><b>#4a586e</b></span>
+        </div>
+    </div>
+</div>
+
+    <!-- 作品 3 -->
+    <div class="card">
+        <img class="my-photo" src="pic3.jpg" alt="作品照片">
+        <h3>◆ 專案：花磚明信片</h3>
+        <p><b>專案簡介：</b>本專案以現代幾何圖形為骨架，融合古典玫瑰花卉元素，創作出富有韻律感的四方連續印花設計。透過繁複的圖案堆疊與色彩搭配，展現出具古典美感與現代感並存的視覺藝術。</p>
+        <p><b>設計方式：</b>利用幾何圖形與輔助圓形進行精密編排，將玫瑰花卉解構並規律地重複排列，達到視覺上的和諧與延伸感。</p>
+    </div>
+
+    <!-- ★聯絡方式 -->
     <div class="card contact-box">
         <h2>找我玩聯絡我 📞</h2>
         <p>我的信箱：Tulinamariana2503@gmail.com</p>
