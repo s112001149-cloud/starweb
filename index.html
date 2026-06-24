@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>小星星作品集</title>
+    <style>
+        /* --- 這裡是夜空的底色 --- */
+        :root {
+            --bg-color: #050b18; /* 深藍色 */
+            --font-purple: #4b0082; /* 這是你要的深紫色字體 */
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, #050b18, #1a0b2e);
+            color: var(--font-purple); /* 全部的字都變深紫色 */
+            font-family: "PingFang TC", sans-serif;
+            overflow-x: hidden;
+            transition: background 0.5s;
+        }
+
+        /* --- 星星動起來 --- */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            animation: flash 2s infinite alternate;
+        }
+
+        @keyframes flash {
+            from { opacity: 0.2; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* 星星爆炸 */
+        .boom {
+            animation: explode 0.3s forwards;
+        }
+        @keyframes explode {
+            to { transform: scale(5); opacity: 0; }
+        }
+
+        /* --- 大月亮 --- */
+        .moon {
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            width: 80px;
+            height: 80px;
+            background: #fefcd7;
+            border-radius: 50%;
+            box-shadow: 0 0 50px white;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        /* --- 放作品的白色小卡片 (這樣紫色字才看得清楚) --- */
+        .card {
+            background: rgba(255, 255, 255, 0.8); /* 像磨砂玻璃一樣 */
+            margin: 50px auto;
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border: 5px solid #4b0082; /* 深紫色的邊框 */
+        }
+
+        .my-photo {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            border-radius: 20px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1, h2, h3, p {
+            color: var(--font-purple); /* 確定字一定是深紫色 */
+        }
+
+        .contact-box {
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 這是大月亮 -->
+    <div class="moon" onclick="changeSky()" title="點我變換夜空顏色"></div>
+
+    <!-- 星星會出現在這裡 -->
+    <div id="star-box"></div>
+
+    <!-- ★關於我的介紹 -->
+    <div class="card">
+        <h1>我是 [塗仙元] 🎈</h1>
+        <p>歡迎來到我的小星球！</p>
+    </div>
+
+    <!-- ★作品分類 -->
+    <div style="text-align: center;">
+        <h2 style="background: white; display: inline-block; padding: 10px 20px; border-radius: 50px;">我的寶藏作品集</h2>
+    </div>
+
+    <!-- 作品 1 -->
+    <div class="card">
+        <img class="my-photo" src="https://via.placeholder.com/400x250?text=PHOTO+1" alt="作品照片">
+        <h3>◆ 專案：彩色泡泡</h3>
+        <p><b>專案簡介：</b>這是我畫的最漂亮的泡泡。</p>
+        <p><b>設計方式：</b>用彩色鉛筆用力畫圓圈圈。</p>
+    </div>
+
+    <!-- 作品 2 -->
+    <div class="card">
+        <img class="my-photo" src="https://via.placeholder.com/400x250?text=PHOTO+2" alt="作品照片">
+        <h3>◆ 專案：小車車大賽</h3>
+        <p><b>專案簡介：</b>讓三台小車車排隊跑步。</p>
+        <p><b>設計方式：</b>排成一直線，看誰最快。</p>
+    </div>
+
+    <!-- 作品 3 -->
+    <div class="card">
+        <img class="my-photo" src="https://via.placeholder.com/400x250?text=PHOTO+3" alt="作品照片">
+        <h3>◆ 專案：月亮好朋友</h3>
+        <p><b>專案簡介：</b>這是一個在晚上會發光的玩具。</p>
+        <p><b>設計方式：</b>加上閃亮亮的亮粉。</p>
+    </div>
+
+    <!-- ★聯絡方式 -->
+    <div class="card contact-box">
+        <h2>找我玩聯絡我 📞</h2>
+        <p>我的信箱：Tulinamariana2503@gmail.com</p>
+        <p>我的電話：0905069549</p>
+    </div>
+
+    <script>
+        // 1. 變出很多小星星
+        const starBox = document.getElementById('star-box');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 5 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.top = Math.random() * 200 + 'vh';
+            
+            // 點星星會炸掉
+            star.onclick = function() {
+                star.classList.add('boom');
+                setTimeout(() => star.remove(), 300);
+            };
+            starBox.appendChild(star);
+        }
+
+        // 2. 點月亮變顏色
+        let isBlue = true;
+        function changeSky() {
+            if (isBlue) {
+                document.body.style.background = "#2d1b4e"; // 變深紫色天空
+            } else {
+                document.body.style.background = "#050b18"; // 變深藍色天空
+            }
+            isBlue = !isBlue;
+        }
+    </script>
+</body>
+</html>
